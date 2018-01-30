@@ -13,14 +13,18 @@ export class HomePage {
 
   audioJackStatus(){
     console.log('checking headphone');
-    (<any>window).HeadsetDetection.detect(function(detected){
-      if(detected){
-        alert('Headphone connected')
-      }
-      else{
-        alert('No Headphone Found.')
-      }
-    })
+    try {
+      (<any>window).HeadsetDetection.detect(function(detected){
+        if(detected){
+          alert('Headphone connected')
+        }
+        else{
+          alert('No Headphone Found.')
+        }
+      })
+    } catch (error) {
+      alert(error); 
+    }
   }
 
   audioInit(){
